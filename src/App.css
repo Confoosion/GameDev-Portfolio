@@ -1,7 +1,18 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;  /* Prevent horizontal scroll */
+  background: linear-gradient(to bottom, black, #1f2937); /* gray-900 */
+  background-attachment: fixed; /* Makes sure gradient stays put during scroll */
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100vw;        /* take full viewport width */
+  max-width: none;     /* remove width constraint */
+  margin: 0;           /* no centering margin */
+  padding: 0;          /* remove outer padding (if you don't want it) */
   text-align: center;
 }
 
