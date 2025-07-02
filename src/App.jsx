@@ -1,25 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AboutMe from './components/AboutMe';
+import Projects from './pages/Projects';
+import Work from './pages/Work';
+import Resume from './pages/Resume';
+import Contact from './pages/Contact';
+
 import collageImage from './assets/PortfolioCollage.png';
 
 function App() {
   return (
-    <div className="text-white min-h-screen w-screen text-base md:text-lg">
-      <Navbar />
-      <div className="pt-20">
-        <img 
-          src={collageImage} 
-          alt="Jake Sales banner" 
-          className="w-full -mt-4"
-          style={{ display: 'block' }}
-        />
-        <AboutMe />
+    <Router basename="/GameDev-Portfolio">
+      <div className="text-white min-h-screen w-screen text-base md:text-lg">
+        <Navbar />
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <>
+                <div className="pt-20">
+                  <img 
+                    src={collageImage} 
+                    alt="Jake Sales banner" 
+                    className="w-full -mt-4"
+                    style={{ display: 'block' }}
+                  />
+                  <AboutMe />
+                </div>
+              </>
+            } 
+          />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
