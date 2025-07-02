@@ -8,7 +8,7 @@ import collageImage from './assets/PortfolioCollage.png';
 
 function App() {
   return (
-    <div className="text-white min-h-screen w-screen">
+    <div className="text-white min-h-screen w-screen text-base md:text-lg">
       <Navbar />
       <div className="pt-20">
         <img 
