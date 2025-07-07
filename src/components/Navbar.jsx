@@ -8,7 +8,6 @@ const Navbar = () => {
         <ul className="flex space-x-6 list-none m-0 p-0">
           <li><Link to="/" className="hover:text-gray-400">Home</Link></li>
           <li><Link to="/projects" className="hover:text-gray-400">Projects</Link></li>
-          <li><Link to="/work" className="hover:text-gray-400">Work</Link></li>
           <li><Link to="/resume" className="hover:text-gray-400">Resume</Link></li>
           <li><Link to="/contact" className="hover:text-gray-400">Contact</Link></li>
         </ul>
