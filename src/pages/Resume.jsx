@@ -1,8 +1,12 @@
 const Resume = () => {
   return (
-    <div className="pt-20 px-6">
-      <h2 className="text-3xl font-bold mb-4">Resume</h2>
-      <p>Here is my Game Development Resume</p>
+    <div className="pt-20 px-6 max-w-5xl mx-auto">
+      <h2 className="text-3xl font-bold mb-6 text-center">Resume</h2>
+      <iframe
+        src="/GameDev-Portfolio/JakeSalesResume2025 (2).pdf"
+        title="Jake Sales Resume"
+        className="w-full h-[90vh] border rounded"
+      />
     </div>
   );
 };

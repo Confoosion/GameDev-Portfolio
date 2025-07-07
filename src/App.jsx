@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AboutMe from './components/AboutMe';
 import Projects from './pages/Projects';
-import Work from './pages/Work';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
+import ProjectDetail from './pages/ProjectDetail';
 
 import collageImage from './assets/PortfolioCollage.png';
 
@@ -31,7 +31,7 @@ function App() {
             } 
           />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/work" element={<Work />} />
+          <Route path="/projects/:projectId" element={<ProjectDetail />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
