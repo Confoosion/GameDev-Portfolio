@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 
+import stationaryThumb from '../assets/StationaryTemp.png';
+import markusThumb from '../assets/MarkusMiasmaTemp.png';
+import souperThumb from '../assets/SouperHeroTemp.png';
+
 const projectData = [
-  { id: 'stationary', title: 'Stationary', thumbnail: '/path/to/stationary-thumb.png' },
-  { id: 'markusMiasma', title: 'Markus\'s Miasma', thumbnail: '/path/to/box-sorter-thumb.png' },
-  { id: 'souperHero', title: 'Souper Hero', thumbnail: '/path/to/souperHero.png'},
+  { id: 'stationary', title: 'Stationary', thumbnail: stationaryThumb },
+  { id: 'markusMiasma', title: 'Markus\'s Miasma', thumbnail: markusThumb },
+  { id: 'souperHero', title: 'Souper Hero', thumbnail: souperThumb },
 
   // Add more projects as needed
 ];
