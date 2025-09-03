@@ -1,6 +1,7 @@
 // App.jsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import ScrollToTop from './components/ScrollToTop';
 import AboutMe from './components/AboutMe';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
@@ -10,42 +11,28 @@ import ProjectDetail from './pages/ProjectDetail';
 function Home() {
   return (
     <div className="pt-20">
-      {/* About */}
-      <section id="about" className="scroll-mt-24">
-        <AboutMe />
-      </section>
+      <section id="about" className="scroll-mt-24 pb-32"><AboutMe /></section>
+      <section id="projects" className="scroll-mt-24 pb-32"><Projects initialLimit={4} /></section>
+      <section id="resume" className="scroll-mt-24 pb-32"><Resume /></section>
+      <section id="contact" className="scroll-mt-24 pb-32"><Contact /></section>
+    </div>
+  );
+}
 
-      {/* Projects */}
-      <section id="projects" className="scroll-mt-24">
-        <Projects limit={4} />
-      </section>
+function AppContent() {
+  const location = useLocation();
+  const hideNavbar = /^\/projects\/[^/]+$/.test(location.pathname);
 
-      {/* Resume (inline) */}
-      <section id="resume" className="scroll-mt-24">
-        {/* Option A: reuse your full Resume page component */}
-        <Resume />
-
-        {/* Option B (lighter): a compact preview with buttons
-        <div className="px-6 max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-center">Resume</h2>
-          <div className="flex gap-4 justify-center">
-            <a href="/GameDev-Portfolio/resume.pdf" target="_blank" rel="noopener noreferrer"
-               className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
-              View PDF
-            </a>
-            <a href="/GameDev-Portfolio/resume.pdf" download
-               className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">
-              Download
-            </a>
-          </div>
-        </div>
-        */}
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="scroll-mt-24">
-        <Contact />
-      </section>
+  return (
+    <div className="text-white min-h-screen w-screen text-base md:text-lg">
+      {!hideNavbar && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<div className="pt-20"><Projects /></div>} />
+        <Route path="/projects/:projectId" element={<ProjectDetail />} />
+        <Route path="/resume" element={<div className="pt-20"><Resume /></div>} />
+        <Route path="/contact" element={<div className="pt-20"><Contact /></div>} />
+      </Routes>
     </div>
   );
 }
@@ -53,17 +40,8 @@ function Home() {
 export default function App() {
   return (
     <Router basename="/GameDev-Portfolio">
-      <div className="text-white min-h-screen w-screen text-base md:text-lg">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* Keep standalone pages if you want direct routes */}
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:projectId" element={<ProjectDetail />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
+      <ScrollToTop />
+      <AppContent />
     </Router>
   );
 }
